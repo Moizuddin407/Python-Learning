@@ -1,4 +1,5 @@
 # Quiz for above topics:
+
 print("Question 1")
 def func(a,b):
     return a*b
@@ -11,18 +12,57 @@ def func2(a):
     else:
         print("Odd")
 print(func2(3))
+
 print("Question 3")
 def func3(*num):
     for i in num:
-        if(a%2==0):
+        if(i%2==0):
             sum=sum+i
 num={1,2,3,4,5,6}
 func3(num)
 
 print("Question 4")
+def func4(**arr):
+    for key, value in arr.items():
+        if(key==1):
+            print(f"{key}:{value}")
+
+arr={1:'a',2:'b'}
+func4(**arr)
+
 print("Question 5")
+# Same as Q2
 print("Question 6")
+for i in range(1,20):
+    if(i%3==0):
+        continue
+    elif(i%17==0):
+        break
+    else:
+        print(i)
+
+
 print("Question 7")
+
+for i in range(1,5):
+    print(i*i)
+
 print("Question 8")
+def func8(n):
+    while(n>0):
+        n=n*n-1
+        sum=sum+n
+        n-=1
+    else:
+        print("Sorry")
+
 print("Question 9")
+
+while(num>0):
+    print(num)
+    num-=1
+
 print("Question 10")
+for i in range(1,10):
+    for j in range(1,10):
+        print(i*j)
