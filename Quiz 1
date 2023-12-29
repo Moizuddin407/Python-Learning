@@ -1,10 +1,13 @@
 # Quiz for above topics:
 
+# Correct
 print("Question 1")
 def func(a,b):
     return a*b
 
 print(func(2,3))
+
+# Correct
 print("Question 2")
 def func2(a):
     if(a%2==0):
@@ -13,6 +16,7 @@ def func2(a):
         print("Odd")
 print(func2(3))
 
+# Correct
 print("Question 3")
 def func3(*num):
     for i in num:
@@ -21,17 +25,32 @@ def func3(*num):
 num={1,2,3,4,5,6}
 func3(num)
 
+# Wrong
+# print("Question 4")
+# def func4(**arr):
+#     for key, value in arr.items():
+#         if(key==1):
+#             print(f"{key}:{value}")
+
+# arr={1:'a',2:'b'}
+# func4(**arr)
+# Correct Solution:
 print("Question 4")
 def func4(**arr):
     for key, value in arr.items():
-        if(key==1):
+        if(key=='Hey'):
             print(f"{key}:{value}")
 
-arr={1:'a',2:'b'}
+arr={'Hey':'a','Hi':'b'}
 func4(**arr)
+# Always keep key a string!
 
+
+# Correct
 print("Question 5")
 # Same as Q2
+
+# Correct
 print("Question 6")
 for i in range(1,20):
     if(i%3==0):
@@ -41,28 +60,49 @@ for i in range(1,20):
     else:
         print(i)
 
-
+# Correct
 print("Question 7")
 
 for i in range(1,5):
     print(i*i)
 
+# Wrong
+# print("Question 8")
+# def func8(n):
+#     while(n>0):
+#         n=n*n-1
+#         sum=sum+n
+#         n-=1
+#     else:
+#         print("Sorry")
+# Solution:
 print("Question 8")
 def func8(n):
-    while(n>0):
-        n=n*n-1
-        sum=sum+n
-        n-=1
+    i = n
+    total_sum = 1
+    while i > 0:
+        total_sum = total_sum * i
+        i -= 1
     else:
-        print("Sorry")
+        print(f"The factorial of {n} is: {total_sum}")
 
+func8(4)
+
+
+# Correct
 print("Question 9")
-
+num=2
 while(num>0):
     print(num)
     num-=1
 
+# 9.5/10
+# print("Question 10")
+# for i in range(1,10):
+#     for j in range(1,10):
+#         print(i*j)
+    
 print("Question 10")
 for i in range(1,10):
-    for j in range(1,10):
+    for j in range(1,11):
         print(i*j)
