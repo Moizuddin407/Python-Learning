@@ -1,0 +1,28 @@
+# Quiz for above topics:
+print("Question 1")
+def func(a,b):
+    return a*b
+
+print(func(2,3))
+print("Question 2")
+def func2(a):
+    if(a%2==0):
+        pass
+    else:
+        print("Odd")
+print(func2(3))
+print("Question 3")
+def func3(*num):
+    for i in num:
+        if(a%2==0):
+            sum=sum+i
+num={1,2,3,4,5,6}
+func3(num)
+
+print("Question 4")
+print("Question 5")
+print("Question 6")
+print("Question 7")
+print("Question 8")
+print("Question 9")
+print("Question 10")
