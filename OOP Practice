@@ -1,0 +1,279 @@
+listDic=[]
+def q2_add(prodid,name,price,quant):
+    dic={"id":prodid,"name":name,"price":price,"quantity":quant}
+    listDic.append(dic)
+    file=open("Inventory.txt","w")
+    file.write(str(listDic))
+
+def q2_delete(prodid):
+    file=open("Inventory.txt","r")
+    global listDic
+    line=""
+    for line in file:
+        line = file.readline()
+        if line == "":
+            pass
+        else:
+            listDic.append(line)
+    file.close()
+        
+    for i, item in enumerate(listDic):
+        if item["id"] == prodid:
+            del listDic[i]
+    print(listDic)
+    file=open("Inventory.txt","w")
+    file.write(str(listDic))
+
+
+
+q2_add(1,"Laptop",443,23)
+q2_add(2,"Laptop",44343,13)
+
+q2_delete(2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# # Exception handeling
+# a = input("Enter number:")
+
+# print(f"Table for {a} is: ")
+
+# try:
+#     for i in range(1,11):
+#         print(f"{int(a)} X {i} = {int(a)*i}")
+# except Exception as e:
+#     print("Please enter a numeber!")
+#     print(e)
+    
+# Finally: Use case(e.g. db con khatm kro on error
+# in function, beshak jo marzi return ho rha ho wo execute hoga)
+def fun():    
+    try:
+        l=[1,5,6,7]
+        i= int(input("Enter index"))
+        print(l[i])
+        return 1
+    except:
+        print("Error occured")
+        return 0
+    finally:
+        print("Always executed")
+
+# customerror
+class CustomError(Exception):
+    pass
+
+try:
+    a = int(input("Enter a number between 5 and 9: "))
+    
+    if a < 5 or a > 9:
+        raise CustomError("Value should be between 5 and 9")
+
+except CustomError as ce:
+    print(f"Custom Error: {ce}")
+except ValueError as ve:
+    print(f"ValueError: {ve}")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
+
+    
+
+
+
+
+
+
+
+# OOP
+# class person:
+#     name="Moiz"
+#     occ="dev"
+#     net=10
+#     def info(self):
+#         print(f"{self.name} is a {self.occ}")
+
+# a = person()
+# a.name="Sarah"
+# print(a.name,a.occ)
+# a.info()
+
+#Constructor 
+
+class person:
+#     constructor
+    def __init__(self,n,o):
+        self.name=n
+        self.occ=o
+        
+    def info(self):
+        print(f"{self.name} is a {self.occ}")
+
+a = person("Sarah","Student")
+print(a.name,a.occ)
+a.info()
+
+
+
+
+
+
+
+
+
+
+def greetingfunc(fx):
+    def func(*args, **kwargs):
+        print("Hey")
+        fx(*args, **kwargs)
+        print("Bye")
+    return func
+
+@greetingfunc
+def hello():
+    print("Hello World")
+
+@greetingfunc
+def add(a, b):
+    print(a + b)
+
+hello()
+add(2, 3)
+
+
+
+
+
+
+
+
+
+
+
+
+class myClass:
+    def __init__(self,n):
+        self.name=n
+        
+    def func(self):
+        print(self.name)
+
+a = myClass("Ali")
+
+a.func()
+
+
+
+
+
+
+
+
+
+class Human:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    # printing
+    def display(self):
+        return f"{self.name}:{self.age}"
+
+    def __str__(self):
+        return f"{self.name}:{self.age}"
+
+    # operator overloading
+    def __add__(self, second_obj):
+        return self.age + second_obj.age
+
+    def __sub__(self, second_obj):
+        return self.age - second_obj.age
+
+
+class Student(Human):
+    
+    def __init__(self, name, age):
+#         if there are 2 classes or more inherited, use:
+# Human().__init__(name,age)
+# class2().__init__(name,age)
+
+        super().__init__(name, age)
+
+    def __str__(self):
+        return super().display()
+
+
+human = Human('Hamza', 12)
+human2 = Human('Moiz', 13)
+human.display()
+print(human)
+print(human + human2)
+
+S1 = Student('Hamza', 25)
+print(S1)
+
+
+
+
+
+
+
+
+
+
+
+class Human:
+    def __init__(self, name, age):
+        self._name = name  # private
+        self.age = age
+
+    def display(self):
+        return f"{self._name}:{self.age}"
+
+    def __str__(self):
+        return f"{self._name}:{self.age}"
+
+    def getter(self):
+        return self._name
+
+    def setter(self, name):
+        self._name = name
+
+    def __add__(self, second_obj):
+        return self.age + second_obj.age
+
+    def __sub__(self, second_obj):
+        return self.age - second_obj.age
+
+class Student(Human):
+    def __init__(self, name, age):
+        super().__init__(name, age)
+
+    def getter_name(self):
+        return self.getter()
+
+    def setter_name(self, name):
+        self.setter(name)
+
+    def __str__(self):
+        return super().__str__()
+
+# Example usage:
+human = Human('Hamza', 12)
+human2 = Human('Moiz', 13)
+print(human.getter()) 
+
+S1 = Student('Hamza', 25)
+S1.setter_name('Haris')
+print(S1.getter_name())
+
