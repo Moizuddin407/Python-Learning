@@ -55,6 +55,6 @@ def q8(s1,s2):
     
     return s3
         
-strr = q8("Miteamo","SarahYousaf")
+strr = q8("TeAmo","SarahYousaf")
 
 
