@@ -102,8 +102,21 @@ np.min(arr)
 np.min(arr,axis=1)
 np.max(arr)
 
+max_value = np.amax(arr)
+max_index = np.argmax(arr)
+
+min_value = np.amin(arr)
+min_index = np.argmin(arr)
+
 # check for row and col
 np.sum(arr)
+
+mean = np.mean(arr)
+median = np.median(arr)
+std_dev = np.std(arr)
+variance = np.var(matrix2)
+
+
 
 
 # Dot product:
