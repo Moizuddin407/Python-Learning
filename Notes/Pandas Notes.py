@@ -151,3 +151,14 @@ numeric_columns = dataDF.select_dtypes(include=[np.number])
 result = numeric_columns.groupby('year').agg(['min', np.median, 'max'])
 
 print(result)
+
+
+
+# Read from file:
+pdData = pd.read_csv('C:\\Users\\MOIZ UDDIN\\Desktop\\Python\\Labs & project\\Labs & project\\historical_stock_prices.csv')
+
+DataDF = pdData.to_dict(orient='list')
+
+df_from_dict = pd.DataFrame(DataDF)
+
+df_from_dict
